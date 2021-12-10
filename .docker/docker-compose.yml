@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  orders:
+    container_name: orders
+    image: orders:latest
+    networks:
+      - internal-network
+    build:
+      context: ../orders
+      dockerfile: Dockerfile
+    
+  clients:
+    container_name: clients
+    image: clients:latest
+    depends_on:
+      - orders
+    networks:
+      - internal-network
+    build:
+      context: ../clients
+      dockerfile: Dockerfile
+
+  frontend:
+    container_name: frontend
+    image: frontend:latest
+    networks:
+      - internal-network
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+
+  proxy:
+    container_name: reverse
+    hostname: reverse
+    image: proxy:latest
+    networks:
+      - internal-network
+    ports:
+      - 8080:80
+    build:
+      context: ../proxy
+      dockerfile: Dockerfile
+      
+networks:
+  internal-network:

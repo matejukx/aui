@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "up",
+        "command": "docker-compose.exe",
+        "args": [
+          "-f",
+          ".docker/docker-compose.yml",
+          "up",
+          "--remove-orphans",
+          "--build",
+          "-d"
+        ],
+        "dependsOn": "publish"
+      },
+      {
+        "label": "down",
+        "command": "docker-compose.exe",
+        "args": [
+          "-f",
+          ".docker/docker-compose.yml",
+          "down"
+        ]
+      }
+    ]
+}
