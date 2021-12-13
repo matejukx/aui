@@ -1,0 +1,12 @@
+{
+    "name": "labshop",
+    "version": "1.0.0-SNAPSHOT",
+    "description": "Labshop frontend",
+    "scripts": {
+      "dev": "http-server -p 8083 -c-1"
+    },
+    "devDependencies": {
+      "http-server": "0.12.3"
+    }
+}
+  

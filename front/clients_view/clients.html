@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="Labshop frontend application"/>
+        <meta name="author" content="Michał Matejuk"/>
+        <title>Labshop</title>
+        <link rel="stylesheet" href="../styles.css"/>
+        <script src="clients.js" async="async" type="module" defer="defer"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header" id="header_main"></header>
+
+            <nav class="navigation-bar" id="navbar"></nav>
+
+            <section class="main-section">
+                <article class="text--justified">
+                    <header id='clients_header'>
+                        <h2>Clients</h2>
+                    </header>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>name</th>
+                                <th>view</th>
+                                <th>edit</th>
+                                <th>delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <td>name</td>
+                                <td><a href="#">view</a></td>
+                                <td><a href="#">edit</a></td>
+                                <td>
+                                    <button class="ui-button ui-control">delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </section>
+
+            <footer class="footer" id="footer_main"></footer>
+        </div>
+    </body>
+</html>

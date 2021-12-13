@@ -27,7 +27,7 @@ services:
     networks:
       - internal-network
     build:
-      context: ../frontend
+      context: ../front
       dockerfile: Dockerfile
 
   proxy:
