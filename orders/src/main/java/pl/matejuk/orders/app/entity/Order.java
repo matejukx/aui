@@ -18,7 +18,7 @@ import java.util.UUID;
 public class Order {
     @Id
     @GeneratedValue
-    private UUID id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client")

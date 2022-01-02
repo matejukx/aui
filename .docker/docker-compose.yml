@@ -1,11 +1,39 @@
 version: '3.9'
 
 services:
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8088:8080
+    networks:
+      - internal-network
+  db:
+    container_name: maria_db
+    image: mariadb:latest
+    networks:
+      - internal-network
+    restart: always
+    ports: 
+      - "3306:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=pass
+    - MARIADB_USER=admin
+    - MARIADB_PASSWORD=pass
+    - MARIADB_DATABASE=clients_db
+    volumes: 
+      - ./db_init:/docker-entrypoint-initdb.d
+
   orders:
     container_name: orders
     image: orders:latest
+    depends_on:
+      - db
     networks:
       - internal-network
+    ports:
+      - 8092:8082
     build:
       context: ../orders
       dockerfile: Dockerfile
@@ -17,9 +45,13 @@ services:
       - orders
     networks:
       - internal-network
+    ports:
+      - 8091:8081
     build:
       context: ../clients
       dockerfile: Dockerfile
+    volumes:
+      - ./storage/:/usr/local/storage/
 
   frontend:
     container_name: frontend
@@ -27,7 +59,7 @@ services:
     networks:
       - internal-network
     build:
-      context: ../front
+      context: ../frontend
       dockerfile: Dockerfile
 
   proxy:

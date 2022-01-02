@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 @ToString
 @EqualsAndHashCode
 public class CreateOrderRequest {
-    private UUID clientId;
+    private Long clientId;
     private int price;
     private String description;
 

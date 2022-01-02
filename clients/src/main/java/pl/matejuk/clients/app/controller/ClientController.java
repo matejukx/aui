@@ -9,7 +9,6 @@ import pl.matejuk.clients.app.entity.Client;
 import pl.matejuk.clients.app.service.ClientService;
 import pl.matejuk.clients.app.service.ClientOrderService;
 
-import java.util.UUID;
 
 @RestController
 @RequestMapping("api/clients")
@@ -30,7 +29,7 @@ public class ClientController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<GetClientResponse> getClient(@PathVariable("id") UUID id){
+    public ResponseEntity<GetClientResponse> getClient(@PathVariable("id") Long id){
         var clientEntity = this.clientService.find(id);
         return clientEntity.map(value -> ResponseEntity.ok(GetClientResponse.entityToDtoMapper().apply(value)))
                 .orElse(ResponseEntity.notFound().build());
@@ -45,7 +44,7 @@ public class ClientController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Void> updateClient(@RequestBody UpdateClientRequest request, @PathVariable("id") UUID id){
+    public ResponseEntity<Void> updateClient(@RequestBody UpdateClientRequest request, @PathVariable("id") Long id){
         var client = this.clientService.find(id);
         if (client.isPresent()){
             UpdateClientRequest.dtoToEntityMapper().apply(client.get(), request);
@@ -56,7 +55,7 @@ public class ClientController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteClient(@PathVariable("id") UUID id){
+    public ResponseEntity<Void> deleteClient(@PathVariable("id") Long id){
         var client = this.clientService.find(id);
         if (client.isPresent()){
             this.clientService.delete(client.get());

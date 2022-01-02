@@ -29,7 +29,7 @@ public class OrderController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<GetOrderResponse> getOrder(@PathVariable("id") UUID id){
+    public ResponseEntity<GetOrderResponse> getOrder(@PathVariable("id") Long id){
         var orderEntity = this.orderService.find(id);
         return orderEntity.map(value -> ResponseEntity.ok(GetOrderResponse.entityToDtoMapper().apply(value)))
                 .orElse(ResponseEntity.notFound().build());
@@ -46,7 +46,7 @@ public class OrderController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Void> updateOrder(@PathVariable("id") UUID id, @RequestBody UpdateOrderRequest request){
+    public ResponseEntity<Void> updateOrder(@PathVariable("id") Long id, @RequestBody UpdateOrderRequest request){
         var order = this.orderService.find(id);
         if (order.isPresent()){
             UpdateOrderRequest.dtoToEntityMapper().apply(order.get(), request);
@@ -57,7 +57,7 @@ public class OrderController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteOrder(@PathVariable("id") UUID id){
+    public ResponseEntity<Void> deleteOrder(@PathVariable("id") Long id){
         var order = this.orderService.find(id);
         if (order.isPresent()){
             this.orderService.delete(order.get());

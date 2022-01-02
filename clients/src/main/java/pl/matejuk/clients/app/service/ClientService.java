@@ -20,7 +20,7 @@ public class ClientService {
         this.repository = repository;
     }
 
-    public Optional<Client> find(UUID id) {
+    public Optional<Client> find(Long id) {
         return repository.findById(id);
     }
 

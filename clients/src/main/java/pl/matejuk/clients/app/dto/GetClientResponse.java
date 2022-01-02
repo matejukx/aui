@@ -15,7 +15,7 @@ import java.util.function.Function;
 @EqualsAndHashCode
 public class GetClientResponse {
 
-    private UUID id;
+    private Long id;
     private String name;
     private String surname;
 

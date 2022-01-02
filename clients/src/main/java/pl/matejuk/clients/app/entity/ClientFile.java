@@ -12,14 +12,16 @@ import javax.persistence.*;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @Entity
-@Table(name = "clients")
-public class Client {
+@Table(name = "clientFiles")
+public class ClientFile {
     @Id
     @GeneratedValue
     private Long id;
 
     @Column
-    private String name;
+    private String author;
     @Column
-    private String surname;
+    private String description;
+    @Column
+    private String filename;
 }

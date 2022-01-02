@@ -24,7 +24,7 @@ public class GetClientsResponse {
     @ToString
     @EqualsAndHashCode
     public static class Client{
-        private UUID id;
+        private Long id;
         private String name;
     }
 

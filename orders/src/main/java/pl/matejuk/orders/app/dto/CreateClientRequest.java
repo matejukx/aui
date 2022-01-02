@@ -14,7 +14,7 @@ import java.util.function.Function;
 @ToString
 @EqualsAndHashCode
 public class CreateClientRequest {
-    private UUID Id;
+    private Long Id;
 
     public static Function<CreateClientRequest, Client> dtoToEntityMapper(){
         return createClientRequest -> Client.builder()

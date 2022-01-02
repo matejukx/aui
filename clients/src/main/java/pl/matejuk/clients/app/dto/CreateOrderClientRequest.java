@@ -13,7 +13,7 @@ import java.util.function.Function;
 @ToString
 @EqualsAndHashCode
 public class CreateOrderClientRequest {
-    private UUID Id;
+    private Long Id;
 
     @Getter
     @Setter
@@ -24,7 +24,7 @@ public class CreateOrderClientRequest {
     @EqualsAndHashCode
     public static
     class OrderClient {
-        private UUID id;
+        private Long id;
     }
     public static Function<OrderClient, CreateOrderClientRequest> entityToDtoMapper(){
         return entity -> CreateOrderClientRequest.builder()

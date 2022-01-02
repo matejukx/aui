@@ -23,6 +23,10 @@ public class DataInitializer {
 
     @PostConstruct
     void init(){
+        if (this.clientService.findAll().size() == 0){
+            return;
+        }
+
         Client client1 = Client.builder()
                 .name("Adam")
                 .surname("Sandler")

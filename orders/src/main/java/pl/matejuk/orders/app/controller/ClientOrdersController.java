@@ -23,7 +23,7 @@ public class ClientOrdersController {
     private OrderService orderService;
 
     @GetMapping("{id}/orders")
-    public ResponseEntity<GetOrdersResponse> getClientOrders(@PathVariable("id") UUID id){
+    public ResponseEntity<GetOrdersResponse> getClientOrders(@PathVariable("id") Long id){
         var clientEntity = this.clientService.find(id);
         if (clientEntity.isPresent()){
             var orders = this.orderService.findAllByClient(clientEntity.get());
@@ -41,7 +41,7 @@ public class ClientOrdersController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteClient(@PathVariable("id") UUID id){
+    public ResponseEntity<Void> deleteClient(@PathVariable("id") Long id){
         var client = this.clientService.find(id);
         if (client.isPresent()){
             var orders = this.orderService.findAllByClient(client.get());

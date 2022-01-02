@@ -15,8 +15,8 @@ import java.util.function.Function;
 @EqualsAndHashCode
 public class GetOrderResponse {
 
-    private UUID id;
-    private UUID clientId;
+    private Long id;
+    private Long clientId;
     private int price;
     private String description;
 

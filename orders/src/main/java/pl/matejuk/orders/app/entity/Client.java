@@ -17,5 +17,5 @@ import java.util.UUID;
 @Table(name = "clients")
 public class Client {
     @Id
-    private UUID id;
+    private Long id;
 }

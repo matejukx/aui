@@ -24,7 +24,7 @@ public class GetOrdersResponse  {
     @ToString
     @EqualsAndHashCode
     public static class Order{
-        private UUID id;
+        private Long id;
         private String description;
     }
 

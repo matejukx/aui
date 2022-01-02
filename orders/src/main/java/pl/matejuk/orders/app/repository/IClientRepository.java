@@ -7,6 +7,6 @@ import pl.matejuk.orders.app.entity.Client;
 import java.util.UUID;
 
 @Repository
-public interface IClientRepository extends JpaRepository<Client, UUID> {
+public interface IClientRepository extends JpaRepository<Client, Long> {
 
 }

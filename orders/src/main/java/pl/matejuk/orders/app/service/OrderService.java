@@ -21,7 +21,7 @@ public class OrderService {
         this.repository = repository;
     }
 
-    public Optional<Order> find(UUID id) {
+    public Optional<Order> find(Long id) {
         return repository.findById(id);
     }
 

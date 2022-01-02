@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface IOrderRepository extends JpaRepository<Order, UUID> {
+public interface IOrderRepository extends JpaRepository<Order, Long> {
     public List<Order> findAllByClient(Client client);
 }
